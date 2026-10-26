@@ -1,0 +1,18 @@
+# Maven: carpeta de compilación y reportes generados
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Archivos compilados y logs
+*.class
+*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
