@@ -10,9 +10,6 @@ COPY target/classes /app/classes
 ARG APP_VERSION=local
 ENV APP_VERSION=${APP_VERSION}
 
-# SIMULACIÓN: configuración de despliegue errónea (puerto distinto al publicado)
-ENV PORT=9090
-
 # Puerto en el que escucha el servidor de login
 EXPOSE 8080
 
