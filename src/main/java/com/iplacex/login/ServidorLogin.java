@@ -36,6 +36,11 @@ public class ServidorLogin {
 
         HttpServer servidor = HttpServer.create(new InetSocketAddress(puerto), 0);
         servidor.createContext("/login", exchange -> atenderLogin(exchange, servicio));
+
+        // Endpoint de salud que indica que el servicio está disponible y qué versión está desplegada
+        String version = System.getenv().getOrDefault("APP_VERSION", "local");
+        servidor.createContext("/salud", exchange -> responder(exchange, 200, "OK - versión " + version));
+
         servidor.start();
         return servidor;
     }
