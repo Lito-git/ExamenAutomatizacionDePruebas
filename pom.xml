@@ -17,6 +17,8 @@
     <junit.version>4.13.2</junit.version>
     <cucumber.version>7.20.1</cucumber.version>
     <surefire.version>3.5.2</surefire.version>
+    <!-- Permite omitir solo las pruebas unitarias (el stage de integración no las repite) -->
+    <skipUnitTests>false</skipUnitTests>
   </properties>
 
   <dependencies>
@@ -56,6 +58,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.version}</version>
+        <configuration>
+          <skipTests>${skipUnitTests}</skipTests>
+        </configuration>
       </plugin>
       <!-- Failsafe: pruebas de integración (*IT.java) en las fases integration-test y verify -->
       <plugin>
